@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block title %}Your Trip{% endblock %}
-
+ 
 {% block content %}
 <div id="app" class="clearfix">
   <div class="map-container col-sm-8 col-lg-9">
@@ -16,26 +16,30 @@
           <div>
             <h4>Hotels</h4>
             <select data-type="hotel" id="hotel-choices">
-              <option>Andaz Wall Street</option>
-              <option>...</option>
+            {% for hotel in hotels %}
+              <option>{{hotel.name}}</option>
+              {% endfor %}
+
             </select>
-            <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+            <button data-action="addHotel" class="btn btn-primary btn-circle pull-right">+</button>
           </div>
           <div>
             <h4>Restaurants</h4>
             <select data-type="restaurant" id="restaurant-choices">
-              <option>Bouley</option>
-              <option>...</option>
+               {% for restaurant in restaurants %}
+              <option>{{restaurant.name}}</option>
+              {% endfor %}
             </select>
-            <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+            <button data-action="addRestaurant" class="btn btn-primary btn-circle pull-right">+</button>
           </div>
           <div>
             <h4>Activities</h4>
             <select data-type="activity" id="activity-choices">
-              <option>Mahayana Buddhist Temple Association</option>
-              <option>...</option>
+               {% for activity in activities %}
+              <option>{{activity.name}}</option>
+              {% endfor %}
             </select>
-            <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+            <button data-action="addActivity" class="btn btn-primary btn-circle pull-right">+</button>
           </div>
         </div>
       </div>
@@ -60,27 +64,27 @@
           <div>
             <h4>My Hotel</h4>
             <ul class="list-group">
-              <div class="itinerary-item">
-                <span class="title">Andaz Wall Street</span>
-                <button class="btn btn-xs btn-danger remove btn-circle">x</button>
+              <div class="itinerary-item myHotel">
+                <!-- <span class="myHotel title"> </span> -->
+                <!-- <button class="btn btn-xs btn-danger remove btn-circle">x</button> -->
               </div>
             </ul>
           </div>
           <div>
             <h4>My Restaurants</h4>
             <ul class="list-group">
-              <div class="itinerary-item">
-                <span class="title">Bouley</span>
-                <button class="btn btn-xs btn-danger remove btn-circle">x</button>
+              <div class="itinerary-item myRestaurant">
+                <!-- <span class="title">Bouley</span> -->
+                <!-- <button class="btn btn-xs btn-danger remove btn-circle">x</button> -->
               </div>
             </ul>
           </div>
           <div>
             <h4>My Activities</h4>
             <ul class="list-group">
-              <div class="itinerary-item">
-                <span class="title">Mahayana Buddhist Temple Association</span>
-                <button class="btn btn-xs btn-danger remove btn-circle">x</button>
+              <div class="itinerary-item myActivity">
+                <!-- <span class="title">Mahayana Buddhist Temple Association</span>
+                <button class="btn btn-xs btn-danger remove btn-circle">x</button> -->
               </div>
             </ul>
           </div>
